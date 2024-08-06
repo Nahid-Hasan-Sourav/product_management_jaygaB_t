@@ -1,4 +1,5 @@
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
+composer duster
 
-npx lint-staged
+# Run the git add for unstaged files
+
+git add -u
