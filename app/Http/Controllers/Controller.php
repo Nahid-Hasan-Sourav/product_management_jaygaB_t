@@ -31,7 +31,7 @@ abstract class Controller
         return response()->json([], 204); // 'No Content'
     }
 
-    public function success(string $message, mixed $data = [], int $code = 200): JsonResponse
+    public function success(mixed $data = [], string $message = 'Success', int $code = 200): JsonResponse
     {
         return response()->json([
             'message' => $message,
