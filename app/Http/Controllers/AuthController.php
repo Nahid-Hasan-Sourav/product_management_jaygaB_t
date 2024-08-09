@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\Auth\LogoutUser;
 use App\Actions\Auth\StoreUser;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -25,6 +26,16 @@ class AuthController extends Controller
             'message' => 'Successfully created user!',
             'user' => $user,
         ], 201);
+
+    }
+
+    public function logout(Request $request): JsonResponse
+    {
+        // logout action
+        LogoutUser::run($request);
+
+        // return success response
+        return $this->success('Logged out successfully.');
 
     }
 }
